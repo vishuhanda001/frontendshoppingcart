@@ -14,7 +14,9 @@ export class AddtocartComponent implements OnInit {
 
 productsinCart:Product[]=[];
 totalproductsincart:number=0;
-intialproductsincart:any[]=[];
+subTotal = 0;
+tax = 0;
+total=0;
   constructor(public productService:ProductService) {
       this.productService.cartItems.subscribe((products:Product[])=>{
                    if(typeof products == "function" ){
@@ -26,21 +28,22 @@ intialproductsincart:any[]=[];
                       
                       this.productsinCart = products;
                       this.totalproductsincart = this.productsinCart.length;
-                      
-                     for(var i=0;i<this.productsinCart.length;i++){
-                      this.intialproductsincart[i]={};
-                      for (var prop in this.productsinCart[i]) {
-                        this.intialproductsincart[i][prop] = this.productsinCart[i][prop]; 
-                    }
-
-                     }
-
-
-                     if(this.productsinCart === this.intialproductsincart){
-                       console.log("true");
-                     }
 
                     this.setDatatoLocalStorage("products",JSON.stringify(products));
+
+                    for(var i=0;i<this.productsinCart.length;i++){
+                      this.subTotal = this.subTotal + this.productsinCart[i].productAmount;
+                    }
+
+                      this.tax = this.subTotal*19/100;
+                      this.total = this.subTotal+this.tax;
+
+                      this.setDatatoLocalStorage("subTotal",JSON.stringify(this.subTotal))
+                      this.setDatatoLocalStorage("tax",JSON.stringify(this.tax))
+                      this.setDatatoLocalStorage("total",JSON.stringify(this.total))
+
+
+
                  }
    
       })
@@ -59,8 +62,21 @@ intialproductsincart:any[]=[];
       }
       this.productsinCart.splice(index,1);
       this.totalproductsincart = this.productsinCart.length;
-      this.intialproductsincart = this.productsinCart.filter((e)=>{return e;});
       this.setDatatoLocalStorage("products",JSON.stringify(this.productsinCart));
+
+      this.subTotal = 0;
+      for(var i=0;i<this.productsinCart.length;i++){
+        this.subTotal = this.subTotal + this.productsinCart[i].productAmount;
+      }
+
+        this.tax = this.subTotal*19/100;
+        this.total = this.subTotal+this.tax;
+
+        this.setDatatoLocalStorage("subTotal",JSON.stringify(this.subTotal))
+        this.setDatatoLocalStorage("tax",JSON.stringify(this.tax))
+        this.setDatatoLocalStorage("total",JSON.stringify(this.total))
+
+
   }
 
 
@@ -71,6 +87,19 @@ intialproductsincart:any[]=[];
         this.productsinCart[i].productAmount = this.productsinCart[i].productAmount*e.value;
       }
     }
+
+    this.subTotal = 0;
+    for(var i=0;i<this.productsinCart.length;i++){
+      this.subTotal = this.subTotal + this.productsinCart[i].productAmount;
+    }
+
+      this.tax = this.subTotal*19/100;
+      this.total = this.subTotal+this.tax;
+
+      this.setDatatoLocalStorage("subTotal",JSON.stringify(this.subTotal))
+      this.setDatatoLocalStorage("tax",JSON.stringify(this.tax))
+      this.setDatatoLocalStorage("total",JSON.stringify(this.total))
+
   }
 
   getDataFromLocalStorage(key:string){

@@ -11,12 +11,12 @@
             <tr *ngFor="let product of productsinCart;let i=index">
                 <td>{{product.productName}}</td>
                 <td>
-                    <select (change)="selectQuantity(e,product)" #e class="select">
+                     <select (change)="selectQuantity(e,product)" #e class="select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                      </select>
+                      </select> 
                 </td>
                 <td (click)="deleteProduct(product)">X</td>
                 <td>{{product.productAmount}}</td>
@@ -24,9 +24,9 @@
         </table>
     </div>
     <div class="my-total">
-            <h5>Sub total:$202.94</h5>
-            <h5>Tax(19%):$38.65</h5>
-            <h5>Total:$241.49</h5>
+            <h5>Sub total:${{subTotal}}</h5>
+            <h5>Tax(19%):${{tax}}</h5>
+            <h5>Total:${{total}}</h5>
     </div>
     <div class="my-paynow">
         <button>Pay Now</button>
