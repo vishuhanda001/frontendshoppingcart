@@ -17,6 +17,7 @@ totalproductsincart:number=0;
 subTotal = 0;
 tax = 0;
 total=0;
+defaultval = 1;
   constructor(public productService:ProductService) {
       this.productService.cartItems.subscribe((products:Product[])=>{
                    if(typeof products == "function" ){
@@ -79,6 +80,74 @@ total=0;
 
   }
 
+
+  decrementQuantity(e,product){
+    if(parseInt(e.innerText) <2){
+      alert("cant do that");
+      return; 
+    }
+    e.innerText = parseInt(e.innerText) -1;
+    this.defaultval = this.defaultval-1;
+    
+    this.productsinCart = JSON.parse(localStorage.getItem("products"));       
+    for(var i=0;i<this.productsinCart.length;i++){
+      if(this.productsinCart[i].productId==product.productId){
+        this.productsinCart[i].productAmount = this.productsinCart[i].productAmount*parseInt(e.innerText);
+      }
+    }
+
+    this.subTotal = 0;
+    for(var i=0;i<this.productsinCart.length;i++){
+      this.subTotal = this.subTotal + this.productsinCart[i].productAmount;
+    }
+
+      this.tax = this.subTotal*19/100;
+      this.total = this.subTotal+this.tax;
+
+      this.setDatatoLocalStorage("subTotal",JSON.stringify(this.subTotal))
+      this.setDatatoLocalStorage("tax",JSON.stringify(this.tax))
+      this.setDatatoLocalStorage("total",JSON.stringify(this.total))
+
+
+
+
+  }
+  
+  incrementQuantity(e,product){
+    if(parseInt(e.innerText) >25){
+      alert("cant do that");
+      return; 
+    }
+    e.innerText = parseInt(e.innerText) +1;   
+    this.defaultval = this.defaultval+1; 
+
+    this.productsinCart = JSON.parse(localStorage.getItem("products"));       
+    for(var i=0;i<this.productsinCart.length;i++){
+      if(this.productsinCart[i].productId==product.productId){
+        this.productsinCart[i].productAmount = this.productsinCart[i].productAmount*parseInt(e.innerText);
+      }
+    }
+
+
+    this.subTotal = 0;
+    for(var i=0;i<this.productsinCart.length;i++){
+      this.subTotal = this.subTotal + this.productsinCart[i].productAmount;
+    }
+
+      this.tax = this.subTotal*19/100;
+      this.total = this.subTotal+this.tax;
+
+      this.setDatatoLocalStorage("subTotal",JSON.stringify(this.subTotal))
+      this.setDatatoLocalStorage("tax",JSON.stringify(this.tax))
+      this.setDatatoLocalStorage("total",JSON.stringify(this.total))
+
+
+
+  }
+
+  getvalue(e){
+    console.log(e);
+  }
 
   selectQuantity(e:any,product:Product){
      this.productsinCart = JSON.parse(localStorage.getItem("products"));       

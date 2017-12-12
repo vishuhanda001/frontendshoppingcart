@@ -89,6 +89,25 @@
     font-family: 'Spectral SC', serif;
     
 }
+
+.container  .my-shoppincart table tr td:nth-child(2) div{
+    display: inline-block;
+    background-color: blue;
+    width: 12.5%;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+.container  .my-shoppincart table tr td:nth-child(2) div:nth-child(2){
+    background-color: white;
+    border: 1px solid blue;
+    color: blue;
+    font-size: 20px;
+}
+
 .container  .my-shoppincart table tr td:nth-child(3){
     padding-left: 150px;
     color: white;

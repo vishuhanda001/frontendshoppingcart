@@ -11,12 +11,16 @@
             <tr *ngFor="let product of productsinCart;let i=index">
                 <td>{{product.productName}}</td>
                 <td>
-                     <select (change)="selectQuantity(e,product)" #e class="select">
+                    <div (click)="decrementQuantity(e,product)"><span>-</span></div>
+                    <div><span  #e>{{defaultval}}</span></div>
+                    <div (click)="incrementQuantity(e,product)"><span >+</span></div>
+                    
+                     <!-- <select (change)="selectQuantity(e,product)" #e class="select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
-                      </select> 
+                      </select>  -->
                 </td>
                 <td (click)="deleteProduct(product)">X</td>
                 <td>{{product.productAmount}}</td>
