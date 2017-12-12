@@ -12,15 +12,8 @@
                 <td>{{product.productName}}</td>
                 <td>
                     <div (click)="decrementQuantity(e,product)"><span>-</span></div>
-                    <div><span  #e>{{defaultval}}</span></div>
+                    <div><span  #e>{{product.productQuantity}}</span></div>
                     <div (click)="incrementQuantity(e,product)"><span >+</span></div>
-                    
-                     <!-- <select (change)="selectQuantity(e,product)" #e class="select">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                      </select>  -->
                 </td>
                 <td (click)="deleteProduct(product)">X</td>
                 <td>{{product.productAmount}}</td>
