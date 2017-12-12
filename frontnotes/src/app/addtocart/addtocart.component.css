@@ -1,0 +1,147 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+.container{
+    width: 100%;
+}
+.container .my-onlineshopfixed{
+    width: 100%;
+    position: fixed;
+    background-color: green;
+    text-align: center;
+    color: white;
+    height: 70px;
+    box-sizing: border-box;
+    padding: 20px 0px;
+}
+.container .my-onlineshopfixed h3{
+    height: 30px;
+    font-size: 30px;
+    display: inline-block;
+}
+.container .my-onlineshopfixed i{
+    position: fixed;
+    right: 35px;
+    font-size: 30px;
+}
+.container .my-onlineshopfixed span{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    background-color: pink;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+
+}
+
+.container  .my-shoppincart{
+    padding: 130px 0px 0px 0px;
+    text-align: center;
+}
+
+.container  .my-shoppincart h2{
+    font-size: 25px;
+}
+.container  .my-shoppincart h5{
+    font-size: 15px;
+    margin-top: 40px;
+
+}
+.container  .my-shoppincart table{
+    width: 99%;
+    margin-left: 0.5%;
+    padding-top: 20px;
+    text-align: left; 
+    border-collapse:separate;
+    border-spacing:0 10px;
+    font-family: 'Spectral SC', serif;
+
+}
+.container  .my-shoppincart table tr{
+    height: 50px;
+    background: lightpink;
+    margin-bottom: 5px;
+    font-size: 17px;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+.container  .my-shoppincart table tr td{
+    border-top: 1px solid darkgray;
+    border-bottom: 1px solid darkgray;
+}
+.container  .my-shoppincart table tr td:first-of-type{
+    border-left: 1px solid darkgray;
+}
+.container  .my-shoppincart table tr td:nth-child(0){
+    padding-left: 20px;
+    font-family: 'Spectral SC', serif;
+    
+}
+.container  .my-shoppincart table tr td:nth-child(1){
+    padding-left: 50px;
+    font-family: 'Spectral SC', serif;
+}
+.container  .my-shoppincart table tr td:nth-child(2){
+    padding-left: 50px;
+    font-family: 'Spectral SC', serif;
+    
+}
+.container  .my-shoppincart table tr td:nth-child(3){
+    padding-left: 150px;
+    color: white;
+    font-family: 'Spectral SC', serif;
+}
+.container  .my-shoppincart table tr td:nth-child(3):hover{
+    padding-left: 150px;
+    color: red;
+    transition: 0.5s ease-in-out;
+    font-family: 'Spectral SC', serif;
+}
+.container  .my-shoppincart table tr td:last-of-type{
+    border-right: 1px solid darkgray;
+    font-family: 'Spectral SC', serif;
+}
+
+.container .my-total{
+    text-align: right;
+    margin-right: 30px;
+    font-size: 20px;
+}
+.container  .my-paynow{
+    padding-top: 170px;
+    text-align: center;
+}
+
+.container  .my-paynow button{
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 120px;
+    border-radius: 25px;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+}
+.container .my-footer{
+    margin-top: 30px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
+    padding-top: 20px;
+    border-top: 3px solid darkgray;
+    border-left: 1px ;
+}
+
+
+
+
+
+
+
+
+
+
+

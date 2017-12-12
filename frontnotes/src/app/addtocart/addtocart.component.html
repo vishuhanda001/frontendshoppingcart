@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="my-onlineshopfixed">
+        <h3>Online Shopping</h3>
+        <i class="material-icons">add_shopping_cart</i>
+        <span>{{totalproductsincart}}</span>
+    </div>
+    <div class="my-shoppincart">
+        <h2>Shopping Cart</h2>
+        <h5>You have {{totalproductsincart}} items</h5>
+        <table>
+            <tr *ngFor="let product of productsinCart;let i=index">
+                <td>{{product.productName}}</td>
+                <td>
+                    <select (change)="selectQuantity(e,product)" #e class="select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                      </select>
+                </td>
+                <td (click)="deleteProduct(product)">X</td>
+                <td>{{product.productAmount}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="my-total">
+            <h5>Sub total:$202.94</h5>
+            <h5>Tax(19%):$38.65</h5>
+            <h5>Total:$241.49</h5>
+    </div>
+    <div class="my-paynow">
+        <button>Pay Now</button>
+    </div>
+    <div class="my-footer">
+        <p>Disclaimer:This is just a clickable Prototype</p>
+        <p>© Vishu Handa</p>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+        <div class="my-onlineshopfixed">
+                <h3>Online Shopping</h3>
+                <i class="material-icons" (click)="addTocart()">add_shopping_cart</i>
+                <span>{{cartcount}}</span>
+        </div>
+        <div class="my-search">
+                <i class="material-icons">search</i>
+                <input type="text" #input (input)="searchProducts(input)">
+        </div>
+        <div class="my-img-grid">
+                <div class="card" *ngFor="let product of productsshow">
+                        <img [src]="product.productImage" alt="">
+                        <h4>{{product.productName}}</h4>
+                        <h2>${{product.productAmount}}</h2>
+                        <button class="add" (click)="addtocartcount(product)">Add+</button>
+                        <button class="buyNow">Buy Now</button>
+                </div>
+        </div>
+</div>
