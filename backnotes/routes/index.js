@@ -5,10 +5,10 @@ var router = express.Router();
 
 
 
-router.all("/*",function(req,res,next){
-  console.log("all for index first");
-  next();
-})
+// router.all("/*",function(req,res,next){
+//   console.log("all for index first");
+//   next();
+// })
 router.get('/', function(req, res, next) {
   res.send("hey there babe");
   next();

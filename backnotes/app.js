@@ -4,13 +4,15 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require("mongoose");
 
 var index = require('./routes/index');
-var users = require('./routes/users');
-var product = require('./routes/product');
+var user = require('./routes/user');
+var message = require('./routes/message');
 
 var app = express();
-
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost:27017/node-angular");
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -25,9 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
+app.use('/message',message);
+app.use('/user',user);
 app.use('/', index);
-app.use('/users', users);
-app.use('/product', product);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
